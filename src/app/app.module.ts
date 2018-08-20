@@ -6,13 +6,19 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { RepositoriesComponent } from './repositories/repositories.component';
 import { FormSearchComponent } from './form-search/form-search.component';
+import { Request } from './request.service/request.service.component';
+import { DateCountPipe } from './date-count.pipe';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     RepositoriesComponent,
-    FormSearchComponent
+    FormSearchComponent,
+    Request.ServiceComponent,
+    DateCountPipe,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
