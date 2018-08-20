@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SearchRequestService} from '../request.service';
+import {RequestService} from '../request.service';
 import {Repository} from '../repository';
-import {User} from '../user';
+// import {User} from '../user';
 
 
 @Component({

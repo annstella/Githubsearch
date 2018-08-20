@@ -33,12 +33,12 @@ export class RequestService {
 
         const promise = new Promise((resolve) => {
             this.http.get<ApiResponse>('https://api.github.com/users/' + searchName + '?access_token=' + environment.myApi).toPromise().then(getResponse => {
+                this.users.avatar_url = getResponse.avatar_url;
                 this.users.name = getResponse.name;
                 this.users.html_url = getResponse.html_url;
                 this.users.login = getResponse.login;
-                this.users.avatar_url = getResponse.avatar_url;
                 this.users.public_repos = getResponse.public_repos;
-                this.users.created_at = getResponse.created_on;
+                this.users.created_on = getResponse.created_on;
                 resolve();
             }, );
         });
@@ -50,7 +50,7 @@ export class RequestService {
         interface ApiResponse {
             name: string;
             description: string;
-            created_at: Date;
+            created_on: Date;
         }
 
         const myPromise = new Promise((resolve, reject) => {
