@@ -8,7 +8,7 @@ import { HttpClient} from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class SearchRequestService {
+export class RequestService {
     repository: Repository;
     users: User;
     newRepository: any;
@@ -21,15 +21,14 @@ export class SearchRequestService {
 
     githubUser(searchName) {
         interface ApiResponse {
+            avatar_url: string;
             name: string;
             html_url: string;
             description: string;
-            created_at: Date;
+            created_on: Date;
             login: string;
             public_repos: number;
-            followers: number;
-            following: number;
-            avatar_url: string;
+
         }
 
         const promise = new Promise((resolve) => {
@@ -39,11 +38,9 @@ export class SearchRequestService {
                 this.users.login = getResponse.login;
                 this.users.avatar_url = getResponse.avatar_url;
                 this.users.public_repos = getResponse.public_repos;
-                this.users.created_at = getResponse.created_at;
-                this.users.followers = getResponse.followers;
-                this.users.following = getResponse.following;
+                this.users.created_at = getResponse.created_on;
                 resolve();
-            },);
+            }, );
         });
         return promise;
 
