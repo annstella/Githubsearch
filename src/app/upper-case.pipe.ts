@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'dateCount'
+  name: 'upperCase'
 })
-export class DateCountPipe implements PipeTransform {
+export class UpperCasePipe implements PipeTransform {
 
     transform(value: any): string  {
 
-        return value.toDateCounter;
+        return value.toUpperCase;
     }
 
 }

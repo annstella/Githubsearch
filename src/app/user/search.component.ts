@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {RequestService} from '../request.service';
+import {SearchRequestService} from '../search-request.service';
 import {Repository} from '../repository';
-// import {User} from '../user';
+import {User} from '../user';
 
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-    providers: [RequestService],
+    providers: [SearchRequestService],
   styleUrls: ['./search.component.css']
 })
 
@@ -18,6 +18,7 @@ export class SearchComponent implements OnInit {
     users: User ;
     repository: Repository;
     public searchRepo: string;
+    public resultCount = 12;
 
 
     findUser(username) {
@@ -27,7 +28,7 @@ export class SearchComponent implements OnInit {
     }
 
 
-  constructor(public githubUserRequest: RequestService, public userRepos: RequestService) { }
+  constructor(public githubUserRequest: SearchRequestService, public userRepos: SearchRequestService) { }
 
   ngOnInit() {
       this.githubUserRequest.githubUser(this.searchMe);
@@ -39,6 +40,7 @@ export class SearchComponent implements OnInit {
 
     searchRepos() {
         this.searchRepo = '';
+        this.resultCount = 10;
 
     }
 }

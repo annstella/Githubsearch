@@ -1,29 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import {RequestService} from '../request.service';
+import {SearchRequestService} from '../search-request.service';
 import {Repository} from '../repository';
 
 
 @Component({
   selector: 'app-repositories',
   templateUrl: './repositories.component.html',
-    providers: [RequestService],
+    providers: [SearchRequestService],
   styleUrls: ['./repositories.component.css']
 })
 export class RepositoriesComponent implements OnInit {
 
     repository: Repository;
     public searchRepo: string;
-
+    public resultCount = 12;
 
     searchRepos() {
         this.searchRepo = '';
+        this.resultCount = 10;
         this.getDataFunction();
 
     }
 
-    constructor(public gitRepoRequest: RequestService ) { }
+    constructor(public gitRepoRequest: SearchRequestService ) { }
 
   ngOnInit() {
+        this.resultCount = 5;
       this.gitRepoRequest.gitRepos(this.searchRepo);
   }
 

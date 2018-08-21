@@ -1,46 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import {RequestService} from '../request.service';
-import {Repository} from '../repository';
-import {User} from '../user';
+<div class="container">
+    <ng-progress></ng-progress>
+    <div class="row ">
+    <div class="col-md-9 text-center">
+      <app-search-form (getName)='searchRepos($event)'></app-search-form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-11">
+      <div >
+        <div class="table">
+          <table class="table">
+            <tbody>
+             <tr *ngFor=" let repository of gitRepoRequest.searchRepo" >
+              <td>
+                <h4>
+                  <a style="text-align: center" href="{{repository.html_url}} " >{{repository.name}}</a>
+                </h4>
+                <p > Repository Owner:
+                  <a href="{{repository.owner.html_url}}">{{repository.owner.login}}</a>
+                </p>
+                <p>Date Created : {{repository.created_at|date}}</p>
+                <p>Description : {{repository.description}}</p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+          <hr>
+        </div>
+      </div>
+    </div>
 
-
-@Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-    providers: [RequestService],
-  styleUrls: ['./search.component.css']
-})
-
-export class SearchComponent implements OnInit {
-    public searchMe = 'annstella';
-    public githubUser: string;
-
-    users: User ;
-    repository: Repository;
-    public searchRepo: string;
-
-
-
-    findUser(username) {
-        this.githubUser = '';
-        this.searchMe  = username;
-        this.ngOnInit();
-    }
-
-
-  constructor(public githubUserRequest: SearchRequestService, public userRepos: SearchRequestService) { }
-
-  ngOnInit() {
-      this.githubUserRequest.githubUser(this.searchMe);
-      this.users = this.githubUserRequest.users;
-      this.userRepos.gitUserRepos(this.searchMe);
-      console.log(this.userRepos);
-  }
-
-
-    searchRepos() {
-        this.searchRepo = '';
-        
-
-    }
-}
+  </div>
+</div>
