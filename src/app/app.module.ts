@@ -33,7 +33,7 @@ import { UpperCasePipe } from './upper-case.pipe';
   ],
   imports: [
     BrowserModule,
-      RoutingModule,
+      // RoutingModule,
       RouterModule,
       FormsModule,
       NgProgressModule.forRoot(),
