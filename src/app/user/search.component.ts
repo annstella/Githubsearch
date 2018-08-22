@@ -18,6 +18,7 @@ export class SearchComponent implements OnInit {
     users: User ;
     repository: Repository;
     public searchRepo: string;
+    public resultCount = 12;
 
 
     findUser(username) {
@@ -39,6 +40,7 @@ export class SearchComponent implements OnInit {
 
     searchRepos() {
         this.searchRepo = '';
+        this.resultCount = 10;
 
     }
 }
