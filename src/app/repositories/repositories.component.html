@@ -2,7 +2,7 @@
     <ng-progress></ng-progress>
     <div class="row ">
     <div class="col-md-9 text-center">
-      <app-search-form (getName)='searchRepos($event)'></app-search-form>
+      <app-search-form(getName)='searchRepos($event)'>
     </div>
   </div>
   <div class="row">
@@ -10,7 +10,7 @@
       <div >
         <div class="table">
           <table class="table">
-            <tbody>
+            <body>
              <tr *ngFor=" let repository of gitRepoRequest.searchRepo" >
               <td>
                 <h4>
@@ -23,7 +23,7 @@
                 <p>Description : {{repository.description}}</p>
               </td>
             </tr>
-            </tbody>
+            </body>
           </table>
           <hr>
         </div>
