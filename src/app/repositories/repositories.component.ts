@@ -33,6 +33,7 @@ export class RepositoriesComponent implements OnInit {
       getDataFunction() {
           this.gitRepoRequest.gitRepos(this.searchRepo);
 
+
       }
 
 
