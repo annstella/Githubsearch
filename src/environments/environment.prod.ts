@@ -1,5 +1,5 @@
 
 export const environment = {
-  production: false
-  , myApi: '20cb349c106e546afe43deb42676ccc66ebf970a'
+  production: true
+  , myApi: '12506e27399f4a635285bc939492e9f14cef9ff3'
 };
