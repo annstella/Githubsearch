@@ -12,24 +12,24 @@
         <table class="table table-striped table-light">
           <tbody>
           <tr>
-            <th scope="row">Github Username:</th>
+            <th scope="row">Github Username:</th><br>
               <td> <a href="{{users.html_url}}" target="_blank">{{users.login}}</a></td>
 
           </tr>
           <tr>
-            <th scope="row">Repositories:</th>
+            <th scope="row">Repositories:</th><br>
             <td>{{users.public_repos }}</td>
           </tr>
           <tr>
-            <th scope="row">Date created:</th>
+            <th scope="row">Date created:</th><br>
             <td>{{users.created_at | date}}</td>
           </tr>
           <tr>
-            <th scope="row">Followers:</th>
+            <th scope="row">Followers:</th><br>
             <td>{{users.followers}}</td>
           </tr>
           <tr>
-            <th scope="row">Following</th>
+            <th scope="row">Following</th><br>
             <td>{{users.following}}</td>
           </tr>
           </tbody>
